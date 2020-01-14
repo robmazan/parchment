@@ -30,6 +30,7 @@ module.exports = () => ({
         authorId: _.random(100),
         categoryId: _.random(5),
         title: faker.lorem.sentence(),
+        excerpt: faker.lorem.paragraph(),
         content: faker.lorem.paragraphs(5, '<br>'),
     })),
 
