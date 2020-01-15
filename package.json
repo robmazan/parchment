@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server": "json-server ./.data/generate.js --port 3333 --snapshots ./.data"
+    "json-server": "node ./.data/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -62,11 +62,13 @@
     "cross-env": "^6.0.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "express-session": "^1.17.0",
     "faker": "^4.1.0",
     "husky": "^4.0.7",
     "jest-enzyme": "^7.1.2",
     "jest-fetch-mock": "^3.0.1",
     "json-server": "^0.15.1",
+    "keycloak-connect": "^8.0.1",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.12.0",
