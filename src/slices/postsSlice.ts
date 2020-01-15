@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/redux-toolkit";
 
-interface ReceivePostsParam {
+export interface ReceivePostsParam {
   posts: string[];
 }
 
-interface PostsState {
+export interface PostsState {
   posts: string[];
 }
 
@@ -21,7 +21,5 @@ const postsSlice = createSlice({
     }
   }
 });
-
-export const { receivePosts } = postsSlice.actions;
 
 export default postsSlice;
