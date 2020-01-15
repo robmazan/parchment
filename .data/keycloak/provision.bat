@@ -1,4 +1,4 @@
-SET INSTANCE=keycloak2
+SET INSTANCE=keycloak
 
 multipass launch -c 2 -d 30G -m 1G -n %INSTANCE%
 multipass exec %INSTANCE% -- sudo apt-get update
