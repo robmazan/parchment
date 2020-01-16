@@ -85,7 +85,7 @@ server.use((req, res, next) => {
         }
         return protectDefault(req, res, next);
     } else {
-        next()
+        next();
     }
 });
 
