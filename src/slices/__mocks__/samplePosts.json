@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "authorId": 1,
+    "categoryId": 1,
+    "title": "Title 1",
+    "excerpt": "Excerpt 1",
+    "content": "Content 1"
+  },
+  {
+    "id": 2,
+    "authorId": 2,
+    "categoryId": 2,
+    "title": "Title 2",
+    "excerpt": "Excerpt 2",
+    "content": "Content 2"
+  },
+  {
+    "id": 3,
+    "authorId": 3,
+    "categoryId": 3,
+    "title": "Title 3",
+    "excerpt": "Excerpt 3",
+    "content": "Content 3"
+  }
+]

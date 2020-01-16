@@ -1,55 +1,34 @@
-import postsSlice, {
-  ReceivePostsParam,
-  PostsState
-} from "../slices/postsSlice";
-import { AnyAction } from "redux";
+import postsSlice, { Post } from "../slices/postsSlice";
+import deepFreeze from "deep-freeze";
 
-const createSamplePosts = (): string[] => {
-  return ["Post 1", "Post 2", "Post 3"];
-};
+const sampleData: Post[] = require("./__mocks__/samplePosts.json");
 
-const getInitialState = (): PostsState => {
-  return postsSlice.reducer(undefined, {} as AnyAction);
+const getInitialState = (): Post[] => {
+  return deepFreeze([] as Post[]) as Post[];
 };
 
 describe("posts slice", () => {
   describe("receivePosts action", () => {
     it("should create an action to receive posts", () => {
       const actionCreator = postsSlice.actions.receivePosts;
-      const samplePosts = createSamplePosts();
-      const sampleParams: ReceivePostsParam = {
-        posts: samplePosts
-      };
       const expectedAction = {
         type: actionCreator.toString(),
-        payload: { posts: samplePosts }
+        payload: sampleData
       };
-      expect(actionCreator(sampleParams)).toEqual(expectedAction);
+      expect(actionCreator(sampleData)).toEqual(expectedAction);
     });
   });
 
   describe("combined reducer", () => {
     it("should return the initial state", () => {
-      const expectedState: PostsState = {
-        posts: []
-      };
-      expect(getInitialState()).toEqual(expectedState);
+      expect(getInitialState()).toEqual([] as Post[]);
     });
 
     it("should handle receivePosts action", () => {
       const reducer = postsSlice.reducer;
       const actionCreator = postsSlice.actions.receivePosts;
-      const initialState = getInitialState();
-      const samplePosts = createSamplePosts();
-      const sampleParams: ReceivePostsParam = {
-        posts: samplePosts
-      };
-      const expectedState: PostsState = {
-        ...initialState,
-        posts: samplePosts
-      };
-      expect(reducer(initialState, actionCreator(sampleParams))).toEqual(
-        expectedState
+      expect(reducer(getInitialState(), actionCreator(sampleData))).toEqual(
+        sampleData
       );
     });
   });
