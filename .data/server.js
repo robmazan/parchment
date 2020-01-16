@@ -63,7 +63,8 @@ const protectPosts = keycloak.protect((token, req) => {
         // Only author can create / delete
         return token.hasRole(ROLE_AUTHOR);
     }
-})
+});
+
 const protectCategories = keycloak.protect(ROLE_EDITOR);
 const protectDefault = keycloak.protect();
 
