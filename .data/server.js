@@ -20,6 +20,15 @@ const keycloak = new Keycloak(
   }
 );
 
+server.use((req, res, next) => {
+    if (req.headers["x-forwarded-host"]) {
+        // Ugly hack to force Keycloak to calculate correct redirect URL
+        // from behind a reverse proxy...
+        req.headers.host = req.headers["x-forwarded-host"];
+    }
+    next();
+});
+
 server.use(middlewares);
 
 server.use(
