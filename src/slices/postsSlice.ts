@@ -1,23 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/redux-toolkit";
 
-export interface ReceivePostsParam {
-  posts: string[];
+export interface Post {
+  id: number;
+  authorId: number;
+  categoryId: number;
+  title: string;
+  excerpt: string;
+  content: string;
 }
-
-export interface PostsState {
-  posts: string[];
-}
-
-const initialState: PostsState = {
-  posts: []
-};
 
 const postsSlice = createSlice({
   name: "posts",
-  initialState,
+  initialState: [] as Post[],
   reducers: {
-    receivePosts: (state, action: PayloadAction<ReceivePostsParam>) => {
-      state.posts = [...action.payload.posts];
+    receivePosts: (state, action: PayloadAction<Post[]>) => {
+      return action.payload;
     }
   }
 });
