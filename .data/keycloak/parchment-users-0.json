@@ -1,0 +1,104 @@
+{
+  "realm" : "parchment",
+  "users" : [ {
+    "id" : "cdb39068-6f93-489f-9ecd-31ff5aa1e1ff",
+    "createdTimestamp" : 1579021225610,
+    "username" : "admin",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Adam",
+    "lastName" : "Administrator",
+    "email" : "admin@parchment.net",
+    "credentials" : [ {
+      "id" : "f3e02b61-aea1-46af-91e0-ca9e12f8880e",
+      "type" : "password",
+      "createdDate" : 1579021235790,
+      "secretData" : "{\"value\":\"/VgMhhxC5ZRzBc/6xhA7g6SzS7x5zI5T7jUxskAlP+Y4jNorT/JGYqI9l2oxb+zHax3O3qmS03D8PcM8R8AvfA==\",\"salt\":\"d/N3wiWsxb48qcX4RJ0iFw==\"}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access", "uma_authorization", "admin" ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "13471ad1-8c4d-425b-9c31-f1f4ef808e3b",
+    "createdTimestamp" : 1579079507283,
+    "username" : "author",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Andrew",
+    "lastName" : "Author",
+    "email" : "author@parhcment.net",
+    "credentials" : [ {
+      "id" : "5bc33a49-fb54-4011-8d94-a925a39530b9",
+      "type" : "password",
+      "createdDate" : 1579079632752,
+      "secretData" : "{\"value\":\"G1qJkLS0vOTO8Samr8J1u7Cju0ucgRd71oRoirRFc6ltvFQo/XCR3Y+IduPpwIb5K2nCqA11oyK6UjV/+tusqg==\",\"salt\":\"UjhUJaS1hcQSOxvvKsnfOA==\"}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access", "author", "uma_authorization" ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "e7e5eedd-a84d-4c50-a1ec-d2a0f48f17ae",
+    "createdTimestamp" : 1579079554869,
+    "username" : "editor",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Estella",
+    "lastName" : "Editor",
+    "email" : "editor@parchment.net",
+    "credentials" : [ {
+      "id" : "92c5b273-0f47-4a55-a982-454fe405a69a",
+      "type" : "password",
+      "createdDate" : 1579079644906,
+      "secretData" : "{\"value\":\"83yn0Et9eNY3j4UbtYwJxP1Ndw6GwkFlQbToF+jDCzDNDit9LBA3K16YX4rDkDnGn+JT5IocCQXWF9KCNwkVuQ==\",\"salt\":\"Skgi8vMIRTgcjUiJT6W3Pw==\"}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access", "editor", "uma_authorization" ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "cd5befe8-6ec6-451e-87be-ab59c2a597fb",
+    "createdTimestamp" : 1579079599948,
+    "username" : "user",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Uther",
+    "lastName" : "User",
+    "email" : "user@example.com",
+    "credentials" : [ {
+      "id" : "41cbe883-464f-4cf8-95c4-4f14403100a0",
+      "type" : "password",
+      "createdDate" : 1579079611729,
+      "secretData" : "{\"value\":\"W1dFBSo1pGHe6QN4hni3/he7QfdBG/ac0mFIvwWp3Qkp8Qt3GP12JaH6YbaqSsQ0UpXF6lnJH8p1GUwJamPerQ==\",\"salt\":\"GjbjyFVwbnhYXC0qcprQpw==\"}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access", "uma_authorization" ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}
