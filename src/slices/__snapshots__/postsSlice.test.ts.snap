@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`posts slice receivePosts action should create an action to receive posts 1`] = `
+Object {
+  "payload": Array [
+    Object {
+      "authorId": 1,
+      "categoryId": 1,
+      "content": "Content 1",
+      "excerpt": "Excerpt 1",
+      "id": 1,
+      "title": "Title 1",
+    },
+    Object {
+      "authorId": 2,
+      "categoryId": 2,
+      "content": "Content 2",
+      "excerpt": "Excerpt 2",
+      "id": 2,
+      "title": "Title 2",
+    },
+    Object {
+      "authorId": 3,
+      "categoryId": 3,
+      "content": "Content 3",
+      "excerpt": "Excerpt 3",
+      "id": 3,
+      "title": "Title 3",
+    },
+  ],
+  "type": "posts/receivePosts",
+}
+`;
