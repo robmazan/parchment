@@ -9,13 +9,17 @@ import store from "./store";
 import { ConnectedRouter } from "connected-react-router";
 import { Route, Switch } from "react-router";
 import { history } from "./store/router";
+import NavMenu from "./components/NavMenu";
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Switch>
-        <Route exact path="/" render={() => <App />} />
-      </Switch>
+      <div className="App">
+        <NavMenu />
+        <Switch>
+          <Route exact path="/" render={() => <App />} />
+        </Switch>
+      </div>
     </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
