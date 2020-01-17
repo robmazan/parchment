@@ -64,6 +64,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "express-session": "^1.17.0",
     "faker": "^4.1.0",
+    "http-proxy-middleware": "^0.20.0",
     "husky": "^4.0.7",
     "jest-enzyme": "^7.1.2",
     "jest-fetch-mock": "^3.0.1",

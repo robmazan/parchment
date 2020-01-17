@@ -400,7 +400,7 @@
     "enabled" : true,
     "clientAuthenticatorType" : "client-secret",
     "secret" : "151a72a4-2533-4913-a0ee-4660f24385c1",
-    "redirectUris" : [ "http://localhost:3333/*", "http://localhost:3333/" ],
+    "redirectUris" : [ "http://localhost:3333/*", "http://localhost:3333/", "http://localhost:3000/*", "http://localhost:3000/" ],
     "webOrigins" : [ ],
     "notBefore" : 0,
     "bearerOnly" : false,
