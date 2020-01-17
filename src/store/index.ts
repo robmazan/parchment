@@ -1,10 +1,13 @@
+/* istanbul ignore file */
 import { configureStore } from "@reduxjs/redux-toolkit";
-import rootReducer from "./reducer";
+import postsSlice from "../slices/postsSlice";
 
 const store = configureStore({
-  reducer: rootReducer
+  reducer: {
+    posts: postsSlice.reducer
+  }
 });
 
-export type AppState = ReturnType<typeof rootReducer>;
+export type AppState = typeof store;
 export type AppDispatch = typeof store.dispatch;
 export default store;
