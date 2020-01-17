@@ -6,10 +6,17 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import store from "./store";
+import { ConnectedRouter } from "connected-react-router";
+import { Route, Switch } from "react-router";
+import { history } from "./store/router";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route exact path="/" render={() => <App />} />
+      </Switch>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );
