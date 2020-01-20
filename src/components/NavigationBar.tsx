@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavMenu: React.FC = props => {
+const NavigationBar: React.FC = props => {
   return (
     <nav>
       <ul className="nav-menu">
@@ -25,4 +25,4 @@ const NavMenu: React.FC = props => {
   );
 };
 
-export default NavMenu;
+export default NavigationBar;

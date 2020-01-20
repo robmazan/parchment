@@ -9,13 +9,13 @@ import store from "./store";
 import { ConnectedRouter } from "connected-react-router";
 import { Route, Switch } from "react-router";
 import { history } from "./store/router";
-import NavMenu from "./components/NavMenu";
+import NavigationBar from "./components/NavigationBar";
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div className="App">
-        <NavMenu />
+        <NavigationBar />
         <Switch>
           <Route exact path="/" render={() => <App />} />
         </Switch>

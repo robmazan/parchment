@@ -1,13 +1,13 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import NavMenu from "./NavMenu";
+import NavigationBar from "./NavigationBar";
 import { MemoryRouter } from "react-router-dom";
 
-describe("NavMenu", () => {
+describe("NavigationBar", () => {
   it("renders a navigation menu", () => {
     const component = render(
       <MemoryRouter>
-        <NavMenu />
+        <NavigationBar />
       </MemoryRouter>
     );
     expect(component).toMatchSnapshot();
