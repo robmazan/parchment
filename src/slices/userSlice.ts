@@ -15,10 +15,10 @@ export enum LoadingState {
   FAILURE
 }
 
-export type UserState = {
+export interface UserState {
   user: User | null;
   loadingState: LoadingState;
-};
+}
 
 export const slice = createSlice({
   name: "user",
