@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationBar renders a navigation menu 1`] = `
+<nav>
+  <ul
+    className="nav-menu"
+  >
+    <li
+      className="nav-menu__item"
+    >
+      <Link
+        className="nav-menu__link"
+        to="/"
+      >
+        Home
+      </Link>
+    </li>
+    <li
+      className="nav-menu__item"
+    >
+      <a
+        className="nav-menu__link"
+        href="/login"
+      >
+        Login
+      </a>
+    </li>
+    <li
+      className="nav-menu__item"
+    >
+      <a
+        className="nav-menu__link"
+        href="/logout"
+      >
+        Logout
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
