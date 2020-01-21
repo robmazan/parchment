@@ -1,62 +1,70 @@
 import React from "react";
 import { User } from "../slices/userSlice";
 import { connect } from "react-redux";
+import { getUserFullName, getIsLoggedIn } from "../slices/userSlice";
 
-import userSlice from "../slices/userSlice";
-import { Dispatch, AnyAction } from "@reduxjs/redux-toolkit";
-
-interface OwnProps {
-  name?: String;
+type OwnProps = {
+  name?: string;
+  isLoggedIn: boolean;
   loginURI: string;
   logoutURI: string;
-}
+};
 
-interface DispatchProps {
-  fetchUser?: () => void;
-}
+type ComponentSettings = {
+  linkURI: string;
+  linkText: string;
+  linkClass: string;
+  containerClass: string;
+  nameComponent?: JSX.Element;
+};
 
-export type Props = OwnProps & DispatchProps;
-
-const LoginStatus: React.FC<Props> = props => {
-  if (props.name) {
-    return (
-      <>
-        {props.name}
-        <a className="login-status__link" href={props.logoutURI}>
-          Logout
-        </a>
-      </>
-    );
+const getSettings = (props: OwnProps): ComponentSettings => {
+  const { isLoggedIn, logoutURI, loginURI, name } = props;
+  if (isLoggedIn) {
+    return {
+      linkURI: logoutURI,
+      linkText: "Logout",
+      linkClass: "login-status__link--small",
+      containerClass: "login-status--small",
+      nameComponent: <div className="login-status__name">{name}</div>
+    };
   } else {
-    return (
-      <>
-        <i onClick={props.fetchUser}>KLATTY</i>
-        <a className="login-status__link" href={props.loginURI}>
-          Login
-        </a>
-      </>
-    );
+    return {
+      linkURI: loginURI,
+      linkText: "Login",
+      linkClass: "login-status__link",
+      containerClass: "login-status"
+    };
   }
 };
 
-interface StateProps {
+export const LoginStatus: React.FC<OwnProps> = props => {
+  const {
+    containerClass,
+    nameComponent,
+    linkClass,
+    linkURI,
+    linkText
+  } = getSettings(props);
+
+  return (
+    <div className={containerClass}>
+      {nameComponent}
+      <a className={linkClass} href={linkURI}>
+        {linkText}
+      </a>
+    </div>
+  );
+};
+
+type StateProps = {
   user: User;
-}
+};
 
+/* istanbul ignore next */
 const mapStateToProps = (state: StateProps) => ({
-  name: state.user ? state.user.firstname + " " + state.user.lastname : ""
+  isLoggedIn: getIsLoggedIn(state.user),
+  name: getUserFullName(state.user)
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  fetchUser: (): void => {
-    fetch("/api/user")
-      .then(resp => {
-        return resp.json();
-      })
-      .then(resp => {
-        dispatch(userSlice.actions.receiveUser(resp));
-      });
-  }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginStatus);
+export default connect(mapStateToProps)(LoginStatus);

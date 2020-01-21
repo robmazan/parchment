@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginStatus renders login link for not logged in user 1`] = `
+<div
+  className="login-status"
+>
+  <a
+    className="login-status__link"
+    href="/login"
+  >
+    Login
+  </a>
+</div>
+`;
+
+exports[`LoginStatus renders logout link for logged in user 1`] = `
+<div
+  className="login-status--small"
+>
+  <div
+    className="login-status__name"
+  >
+    Test User
+  </div>
+  <a
+    className="login-status__link--small"
+    href="/logout"
+  >
+    Logout
+  </a>
+</div>
+`;
