@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user slice receiveUser action creates an action to receive user 1`] = `
+Object {
+  "payload": Object {
+    "firstname": " Uther ",
+    "lastname": " User ",
+    "roles": Array [
+      "user",
+    ],
+    "username": "Uther User",
+  },
+  "type": "user/receiveUser",
+}
+`;

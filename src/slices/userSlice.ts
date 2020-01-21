@@ -7,14 +7,25 @@ export type User = {
   roles: string[];
 };
 
-const userSlice = createSlice({
+export const slice = createSlice({
   name: "user",
   initialState: (null as unknown) as User,
   reducers: {
-    receiveUser: (state: User, action: PayloadAction<User>) => {
+    receiveUser: (state: User, action: PayloadAction<User>): User => {
       return action.payload;
     }
   }
 });
 
-export default userSlice;
+export default slice;
+
+export const getUserFullName = (state?: User): string => {
+  return state ? [state.firstname, state.lastname].join(" ").trim() : "";
+};
+
+export const getIsLoggedIn = (state?: User): boolean => {
+  if (!state) {
+    return false;
+  }
+  return state !== null;
+};
