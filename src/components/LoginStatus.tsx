@@ -29,6 +29,7 @@ export const LoginStatus: React.FC<{
   } else {
     return (
       <div className="login-status">
+        <div className="login-status__name">{name}</div>
         <a href={loginURI} className="login-status__link">
           Login
         </a>

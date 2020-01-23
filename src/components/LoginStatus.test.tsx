@@ -18,6 +18,9 @@ describe("LoginStatus", () => {
       <div
         className="login-status"
       >
+        <div
+          className="login-status__name"
+        />
         <a
           className="login-status__link"
           href="/login"
@@ -38,6 +41,7 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.SUCCESS}
       />
     );
+
     expect(component).toMatchInlineSnapshot(`
       <div
         className="login-status login-status--small"
