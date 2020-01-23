@@ -1,6 +1,6 @@
 {
-  "username": "Uther User",
-  "firstname": " Uther ",
+  "username": "Sample User",
+  "firstname": " Sample ",
   "lastname": " User ",
   "roles": ["user"]
 }

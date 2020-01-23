@@ -1,15 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`user slice receiveUser action creates an action to receive user 1`] = `
+exports[`user slice combined reducer handles receiveUserFailure action 1`] = `
 Object {
-  "payload": Object {
-    "firstname": " Uther ",
+  "loadingState": 3,
+  "user": null,
+}
+`;
+
+exports[`user slice combined reducer handles receiveUserSuccess action 1`] = `
+Object {
+  "loadingState": 2,
+  "user": Object {
+    "firstname": " Sample ",
     "lastname": " User ",
     "roles": Array [
       "user",
     ],
-    "username": "Uther User",
+    "username": "Sample User",
   },
-  "type": "user/receiveUser",
+}
+`;
+
+exports[`user slice combined reducer handles requestUser action 1`] = `
+Object {
+  "loadingState": 1,
+  "user": null,
+}
+`;
+
+exports[`user slice combined reducer returns the expected default initial state 1`] = `
+Object {
+  "loadingState": 0,
+  "user": null,
 }
 `;

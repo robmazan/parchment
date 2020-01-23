@@ -1,70 +1,60 @@
 import React from "react";
-import { User } from "../slices/userSlice";
+import slice, { UserState, LoadingState, User } from "../slices/userSlice";
 import { connect } from "react-redux";
-import { getUserFullName, getIsLoggedIn } from "../slices/userSlice";
 
-type OwnProps = {
+interface OwnProps {
   name?: string;
+  loadingState: LoadingState;
   isLoggedIn: boolean;
   loginURI: string;
   logoutURI: string;
-};
+}
 
-type ComponentSettings = {
-  linkURI: string;
-  linkText: string;
-  linkClass: string;
-  containerClass: string;
-  nameComponent?: JSX.Element;
-};
-
-const getSettings = (props: OwnProps): ComponentSettings => {
-  const { isLoggedIn, logoutURI, loginURI, name } = props;
-  if (isLoggedIn) {
-    return {
-      linkURI: logoutURI,
-      linkText: "Logout",
-      linkClass: "login-status__link--small",
-      containerClass: "login-status--small",
-      nameComponent: <div className="login-status__name">{name}</div>
-    };
+export const LoginStatus: React.FC<OwnProps> = ({
+  isLoggedIn,
+  logoutURI,
+  loginURI,
+  name,
+  loadingState
+}) => {
+  if (
+    loadingState === LoadingState.NONE ||
+    loadingState === LoadingState.PENDING
+  ) {
+    return (
+      <div className="login-status">
+        <span className="login-status--loading">Loading...</span>
+      </div>
+    );
+  } else if (isLoggedIn) {
+    return (
+      <div className="login-status--small">
+        <a href={logoutURI} className="login-status__link--small">
+          Logout
+        </a>
+      </div>
+    );
   } else {
-    return {
-      linkURI: loginURI,
-      linkText: "Login",
-      linkClass: "login-status__link",
-      containerClass: "login-status"
-    };
+    return (
+      <div className="login-status">
+        <div className="login-status__name">{name}</div>
+        <a href={loginURI} className="login-status__link">
+          Login
+        </a>
+      </div>
+    );
   }
 };
 
-export const LoginStatus: React.FC<OwnProps> = props => {
-  const {
-    containerClass,
-    nameComponent,
-    linkClass,
-    linkURI,
-    linkText
-  } = getSettings(props);
-
-  return (
-    <div className={containerClass}>
-      {nameComponent}
-      <a className={linkClass} href={linkURI}>
-        {linkText}
-      </a>
-    </div>
-  );
-};
-
-type StateProps = {
-  user: User;
-};
+interface StateProps {
+  user: UserState;
+}
 
 /* istanbul ignore next */
 const mapStateToProps = (state: StateProps) => ({
-  isLoggedIn: getIsLoggedIn(state.user),
-  name: getUserFullName(state.user)
+  isLoggedIn: !!state.user.user,
+  name: state.user.user?.username,
+  loadingState: state.user.loadingState
 });
 
 export default connect(mapStateToProps)(LoginStatus);

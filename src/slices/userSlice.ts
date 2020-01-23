@@ -1,31 +1,62 @@
 import { createSlice, PayloadAction } from "@reduxjs/redux-toolkit";
+import { call, put } from "redux-saga/effects";
 
-export type User = {
+export interface User {
   username: string;
   firstname: string;
   lastname: string;
   roles: string[];
+}
+
+export enum LoadingState {
+  NONE,
+  PENDING,
+  SUCCESS,
+  FAILURE
+}
+
+export type UserState = {
+  user: User | null;
+  loadingState: LoadingState;
 };
 
 export const slice = createSlice({
   name: "user",
-  initialState: (null as unknown) as User,
+  initialState: {
+    user: null,
+    loadingState: LoadingState.NONE
+  },
   reducers: {
-    receiveUser: (state: User, action: PayloadAction<User>): User => {
-      return action.payload;
+    requestUser: (state: UserState): void => {
+      state.loadingState = LoadingState.PENDING;
+    },
+    receiveUserSuccess: (
+      state: UserState,
+      action: PayloadAction<User>
+    ): void => {
+      state.loadingState = LoadingState.SUCCESS;
+      state.user = action.payload;
+    },
+    receiveUserFailure: (
+      state: UserState,
+      action: PayloadAction<Error>
+    ): void => {
+      state.loadingState = LoadingState.FAILURE;
+      state.user = null;
     }
   }
 });
 
-export default slice;
-
-export const getUserFullName = (state?: User): string => {
-  return state ? [state.firstname, state.lastname].join(" ").trim() : "";
-};
-
-export const getIsLoggedIn = (state?: User): boolean => {
-  if (!state) {
-    return false;
+export function* userSaga() {
+  try {
+    yield put(slice.actions.requestUser());
+    const response: Response = yield call(fetch, "/api/user");
+    const user: User = yield call([response, "json"]);
+    yield put(slice.actions.receiveUserSuccess(user));
+  } catch (error) {
+    yield put(slice.actions.receiveUserFailure(error));
   }
-  return state !== null;
-};
+}
+
+export const actions = slice.actions;
+export default slice;
