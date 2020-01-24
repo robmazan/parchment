@@ -41,7 +41,6 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.SUCCESS}
       />
     );
-
     expect(component).toMatchInlineSnapshot(`
       <div
         className="login-status login-status--small"
