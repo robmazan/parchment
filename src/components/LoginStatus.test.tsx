@@ -69,13 +69,9 @@ describe("LoginStatus", () => {
     );
     expect(component).toMatchInlineSnapshot(`
       <div
-        className="login-status"
+        className="login-status login-status--loading"
       >
-        <span
-          className="login-status--loading"
-        >
-          Loading...
-        </span>
+        Loading...
       </div>
     `);
   });
