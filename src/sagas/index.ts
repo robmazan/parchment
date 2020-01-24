@@ -1,10 +1,6 @@
-import { takeLatest, put } from "redux-saga/effects";
-import * as userSaga from "./userSaga";
+import { all } from "redux-saga/effects";
+import { userSaga } from "../slices/userSlice";
 
 export function* mainSaga() {
-  yield takeLatest(
-    userSaga.fetchAuthenticatedUserAction,
-    userSaga.fetchAuthenticateUserSaga
-  );
-  yield put({ type: userSaga.fetchAuthenticatedUserAction });
+  yield all([userSaga()]);
 }

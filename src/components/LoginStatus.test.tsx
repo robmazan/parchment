@@ -18,9 +18,6 @@ describe("LoginStatus", () => {
       <div
         className="login-status"
       >
-        <div
-          className="login-status__name"
-        />
         <a
           className="login-status__link"
           href="/login"
