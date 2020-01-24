@@ -14,7 +14,21 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.FAILURE}
       />
     );
-    expect(component).toMatchSnapshot();
+    expect(component).toMatchInlineSnapshot(`
+      <div
+        className="login-status"
+      >
+        <div
+          className="login-status__name"
+        />
+        <a
+          className="login-status__link"
+          href="/login"
+        >
+          Login
+        </a>
+      </div>
+    `);
   });
 
   it("renders logout link for logged in user", () => {
@@ -27,7 +41,18 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.SUCCESS}
       />
     );
-    expect(component).toMatchSnapshot();
+    expect(component).toMatchInlineSnapshot(`
+      <div
+        className="login-status login-status--small"
+      >
+        <a
+          className="login-status__link login-status__link--small"
+          href="/logout"
+        >
+          Logout
+        </a>
+      </div>
+    `);
   });
 
   it("renders loading state", () => {
@@ -40,6 +65,16 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.PENDING}
       />
     );
-    expect(component).toMatchSnapshot();
+    expect(component).toMatchInlineSnapshot(`
+      <div
+        className="login-status"
+      >
+        <span
+          className="login-status--loading"
+        >
+          Loading...
+        </span>
+      </div>
+    `);
   });
 });
