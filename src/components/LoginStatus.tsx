@@ -29,6 +29,7 @@ export const LoginStatus: React.FC<LoginStatusProps> = ({
   } else if (isLoggedIn) {
     return (
       <div className="login-status login-status--small">
+        <div className="login-status__name">{name}</div>
         <a
           href={logoutURI}
           className="login-status__link login-status__link--small"
@@ -40,7 +41,6 @@ export const LoginStatus: React.FC<LoginStatusProps> = ({
   } else {
     return (
       <div className="login-status">
-        <div className="login-status__name">{name}</div>
         <a href={loginURI} className="login-status__link">
           Login
         </a>
@@ -59,7 +59,7 @@ const mapStateToProps: (
     logoutURI: string;
   }
 ) => LoginStatusProps = ({ user: state }, ownProps) => ({
-  isLoggedIn: !!state.user || false,
+  isLoggedIn: !!state.user,
   name: state.user?.username,
   loadingState: state.loadingState,
   ...ownProps

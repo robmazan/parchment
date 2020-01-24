@@ -18,9 +18,6 @@ describe("LoginStatus", () => {
       <div
         className="login-status"
       >
-        <div
-          className="login-status__name"
-        />
         <a
           className="login-status__link"
           href="/login"
@@ -45,6 +42,11 @@ describe("LoginStatus", () => {
       <div
         className="login-status login-status--small"
       >
+        <div
+          className="login-status__name"
+        >
+          Test User
+        </div>
         <a
           className="login-status__link login-status__link--small"
           href="/logout"
