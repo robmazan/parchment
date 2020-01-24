@@ -46,7 +46,7 @@ const mapStateToProps = (
 ) => ({
   isLoggedIn: !!user,
   name: user?.username,
-  loadingState: loadingState,
+  loadingState,
   loginURI,
   logoutURI
 });
