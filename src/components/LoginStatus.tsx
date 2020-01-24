@@ -1,8 +1,8 @@
 import React from "react";
-import slice, { UserState, LoadingState, User } from "../slices/userSlice";
+import { UserState, LoadingState } from "../slices/userSlice";
 import { connect } from "react-redux";
 
-interface OwnProps {
+interface LoginStatusProps {
   name?: string;
   loadingState: LoadingState;
   isLoggedIn: boolean;
@@ -10,7 +10,7 @@ interface OwnProps {
   logoutURI: string;
 }
 
-export const LoginStatus: React.FC<OwnProps> = ({
+export const LoginStatus: React.FC<LoginStatusProps> = ({
   isLoggedIn,
   logoutURI,
   loginURI,
@@ -28,8 +28,11 @@ export const LoginStatus: React.FC<OwnProps> = ({
     );
   } else if (isLoggedIn) {
     return (
-      <div className="login-status--small">
-        <a href={logoutURI} className="login-status__link--small">
+      <div className="login-status login-status--small">
+        <a
+          href={logoutURI}
+          className="login-status__link login-status__link--small"
+        >
           Logout
         </a>
       </div>
@@ -46,15 +49,20 @@ export const LoginStatus: React.FC<OwnProps> = ({
   }
 };
 
-interface StateProps {
-  user: UserState;
-}
-
 /* istanbul ignore next */
-const mapStateToProps = (state: StateProps) => ({
-  isLoggedIn: !!state.user.user,
-  name: state.user.user?.username,
-  loadingState: state.user.loadingState
+const mapStateToProps: (
+  state: {
+    user: UserState;
+  },
+  ownProps: {
+    loginURI: string;
+    logoutURI: string;
+  }
+) => LoginStatusProps = ({ user: state }, ownProps) => ({
+  isLoggedIn: !!state.user || false,
+  name: state.user?.username,
+  loadingState: state.loadingState,
+  ...ownProps
 });
 
 export default connect(mapStateToProps)(LoginStatus);
