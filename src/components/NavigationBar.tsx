@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LoginStatus from "./LoginStatus";
 
 const NavigationBar: React.FC = props => {
   return (
@@ -11,14 +12,7 @@ const NavigationBar: React.FC = props => {
           </Link>
         </li>
         <li className="nav-menu__item">
-          <a className="nav-menu__link" href="/login">
-            Login
-          </a>
-        </li>
-        <li className="nav-menu__item">
-          <a className="nav-menu__link" href="/logout">
-            Logout
-          </a>
+          <LoginStatus loginURI="/login" logoutURI="/logout" />
         </li>
       </ul>
     </nav>
