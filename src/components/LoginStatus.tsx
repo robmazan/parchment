@@ -1,5 +1,5 @@
 import React from "react";
-import { User, LoadingState } from "../slices/userSlice";
+import { LoadingState, UserState } from "../slices/userSlice";
 import { connect } from "react-redux";
 
 export const LoginStatus: React.FC<{
@@ -37,12 +37,15 @@ export const LoginStatus: React.FC<{
   }
 };
 
+interface LoginStatusProps {
+  loginURI: string;
+  logoutURI: string;
+}
+
 /* istanbul ignore next */
 const mapStateToProps = (
-  {
-    user: { user, loadingState }
-  }: { user: { user: User; loadingState: LoadingState } },
-  { loginURI, logoutURI }: { loginURI: string; logoutURI: string }
+  { user: { user, loadingState } }: { user: UserState },
+  { loginURI, logoutURI }: LoginStatusProps
 ) => ({
   isLoggedIn: !!user,
   name: user?.username,
