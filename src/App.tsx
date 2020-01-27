@@ -2,9 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
-
-const textColor = "#61dafb";
-const backgroundColor = "#282c34";
+import * as theme from "./theme/constants";
 
 const App: React.FC = () => {
   const AppLogoSpinAnimation = keyframes`
@@ -16,7 +14,7 @@ const App: React.FC = () => {
     }
   `;
   const AppHeader = styled.header`
-    background-color: ${backgroundColor};
+    background-color: ${theme.backgroudColor.primary};
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -26,7 +24,7 @@ const App: React.FC = () => {
     color: white;
   `;
   const AppLink = styled.a`
-    color: ${textColor};
+    color: ${theme.textColor.primary};
   `;
   const AppLogo = styled.img`
     height: 40vmin;

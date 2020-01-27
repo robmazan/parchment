@@ -2,8 +2,7 @@ import React from "react";
 import { LoadingState, UserState } from "../slices/userSlice";
 import { connect } from "react-redux";
 import styled from "@emotion/styled";
-
-const textColor = "#61dafb";
+import * as theme from "../theme/constants";
 
 export const LoginStatus: React.FC<{
   isLoggedIn: boolean;
@@ -13,11 +12,11 @@ export const LoginStatus: React.FC<{
   loadingState: LoadingState;
 }> = ({ isLoggedIn, logoutURI, loginURI, name, loadingState }) => {
   const StatusWrapper = styled.div`
-    color: ${textColor};
+    color: ${theme.textColor.primary};
     line-height: ${isLoggedIn ? ".9em" : "initial"};
   `;
   const StatusLink = styled.a`
-    color: ${textColor};
+    color: ${theme.textColor.primary};
     font-size: ${isLoggedIn ? ".8em" : "initial"};
   `;
 
