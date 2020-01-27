@@ -6,7 +6,7 @@ import * as theme from "../theme/constants";
 
 const NavigationBar: React.FC = props => {
   const NavitationMenu = styled.ul`
-    background-color: ${theme.backgroudColor.primary};
+    background-color: ${theme.backgroundColor.primary};
     list-style-type: none;
     padding-inline-start: 0;
     display: flex;

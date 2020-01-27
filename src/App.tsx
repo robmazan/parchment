@@ -14,7 +14,7 @@ const App: React.FC = () => {
     }
   `;
   const AppHeader = styled.header`
-    background-color: ${theme.backgroudColor.primary};
+    background-color: ${theme.backgroundColor.primary};
     min-height: 100vh;
     display: flex;
     flex-direction: column;

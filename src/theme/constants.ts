@@ -2,6 +2,6 @@ export enum textColor {
   primary = "#61dafb"
 }
 
-export enum backgroudColor {
+export enum backgroundColor {
   primary = "#282c34"
 }
