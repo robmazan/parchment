@@ -2,27 +2,21 @@
 
 exports[`NavigationBar renders a navigation menu 1`] = `
 <nav>
-  <ul
-    className="nav-menu"
-  >
-    <li
-      className="nav-menu__item"
-    >
-      <Link
+  <Styled(ul)>
+    <Styled(li)>
+      <Styled(Link)
         className="nav-menu__link"
         to="/"
       >
         Home
-      </Link>
-    </li>
-    <li
-      className="nav-menu__item"
-    >
+      </Styled(Link)>
+    </Styled(li)>
+    <Styled(li)>
       <Connect(LoginStatus)
         loginURI="/login"
         logoutURI="/logout"
       />
-    </li>
-  </ul>
+    </Styled(li)>
+  </Styled(ul)>
 </nav>
 `;

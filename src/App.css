@@ -36,22 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.nav-menu {
-  background-color: #282c34;
-  list-style-type: none;
-  padding-inline-start: 0;
-  display: flex;
-  justify-content: center;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  padding: 1em;
-}
-
-.nav-menu__item {
-  margin: 0.3em;
-}
-
-.nav-menu__link {
-  color: #61dafb;
-}
