@@ -15,16 +15,13 @@ describe("LoginStatus", () => {
       />
     );
     expect(component).toMatchInlineSnapshot(`
-      <div
-        className="login-status"
-      >
-        <a
-          className="login-status__link"
+      <Styled(div)>
+        <Styled(a)
           href="/login"
         >
           Login
-        </a>
-      </div>
+        </Styled(a)>
+      </Styled(div)>
     `);
   });
 
@@ -39,21 +36,16 @@ describe("LoginStatus", () => {
       />
     );
     expect(component).toMatchInlineSnapshot(`
-      <div
-        className="login-status login-status--small"
-      >
-        <div
-          className="login-status__name"
-        >
+      <Styled(div)>
+        <div>
           Test User
         </div>
-        <a
-          className="login-status__link login-status__link--small"
+        <Styled(a)
           href="/logout"
         >
           Logout
-        </a>
-      </div>
+        </Styled(a)>
+      </Styled(div)>
     `);
   });
 
@@ -68,11 +60,9 @@ describe("LoginStatus", () => {
       />
     );
     expect(component).toMatchInlineSnapshot(`
-      <div
-        className="login-status login-status--loading"
-      >
+      <Styled(div)>
         Loading...
-      </div>
+      </Styled(div)>
     `);
   });
 });

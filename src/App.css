@@ -55,19 +55,3 @@
 .nav-menu__link {
   color: #61dafb;
 }
-
-.login-status--small {
-  line-height: 1em;
-}
-
-.login-status__link {
-  color: #61dafb;
-}
-
-.login-status__link--small {
-  font-size: 0.8em;
-}
-
-.login-status__name {
-  color: #61dafb;
-}

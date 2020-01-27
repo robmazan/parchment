@@ -1,6 +1,9 @@
 import React from "react";
 import { LoadingState, UserState } from "../slices/userSlice";
 import { connect } from "react-redux";
+import styled from "@emotion/styled";
+
+const textColor = "#61dafb";
 
 export const LoginStatus: React.FC<{
   isLoggedIn: boolean;
@@ -9,30 +12,32 @@ export const LoginStatus: React.FC<{
   name?: string;
   loadingState: LoadingState;
 }> = ({ isLoggedIn, logoutURI, loginURI, name, loadingState }) => {
+  const StatusWrapper = styled.div`
+    color: ${textColor};
+    line-height: ${isLoggedIn ? ".9em" : "initial"};
+  `;
+  const StatusLink = styled.a`
+    color: ${textColor};
+    font-size: ${isLoggedIn ? ".8em" : "initial"};
+  `;
+
   if (
     loadingState === LoadingState.NONE ||
     loadingState === LoadingState.PENDING
   ) {
-    return <div className="login-status login-status--loading">Loading...</div>;
+    return <StatusWrapper>Loading...</StatusWrapper>;
   } else if (isLoggedIn) {
     return (
-      <div className="login-status login-status--small">
-        <div className="login-status__name">{name}</div>
-        <a
-          href={logoutURI}
-          className="login-status__link login-status__link--small"
-        >
-          Logout
-        </a>
-      </div>
+      <StatusWrapper>
+        <div>{name}</div>
+        <StatusLink href={logoutURI}>Logout</StatusLink>
+      </StatusWrapper>
     );
   } else {
     return (
-      <div className="login-status">
-        <a href={loginURI} className="login-status__link">
-          Login
-        </a>
-      </div>
+      <StatusWrapper>
+        <StatusLink href={loginURI}>Login</StatusLink>
+      </StatusWrapper>
     );
   }
 };
