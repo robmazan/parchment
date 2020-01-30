@@ -1,9 +1,31 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { shallow } from "enzyme";
+import App from "./App";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App", () => {
+  it("renders without any issue", () => {
+    const component = shallow(<App />);
+    expect(component).toMatchInlineSnapshot(`
+      <Styled(div)>
+        <header>
+          <NavigationBar>
+            "Home"
+            <Connect(LoginStatus)
+              loginURI="/login"
+              logoutURI="/logout"
+            />
+          </NavigationBar>
+        </header>
+        <Styled(section)>
+          <Switch>
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/"
+            />
+          </Switch>
+        </Styled(section)>
+      </Styled(div)>
+    `);
+  });
 });

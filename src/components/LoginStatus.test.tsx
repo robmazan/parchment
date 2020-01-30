@@ -14,15 +14,7 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.FAILURE}
       />
     );
-    expect(component).toMatchInlineSnapshot(`
-      <Styled(div)>
-        <Styled(a)
-          href="/login"
-        >
-          Login
-        </Styled(a)>
-      </Styled(div)>
-    `);
+    expect(component).toMatchInlineSnapshot(`"Login"`);
   });
 
   it("renders logout link for logged in user", () => {
@@ -36,16 +28,10 @@ describe("LoginStatus", () => {
       />
     );
     expect(component).toMatchInlineSnapshot(`
-      <Styled(div)>
-        <div>
-          Test User
-        </div>
-        <Styled(a)
-          href="/logout"
-        >
-          Logout
-        </Styled(a)>
-      </Styled(div)>
+      <div>
+        Test User
+      </div>
+      "Logout"
     `);
   });
 
@@ -59,10 +45,6 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.PENDING}
       />
     );
-    expect(component).toMatchInlineSnapshot(`
-      <Styled(div)>
-        Loading...
-      </Styled(div)>
-    `);
+    expect(component).toMatchInlineSnapshot(`"Loading..."`);
   });
 });
