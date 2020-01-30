@@ -1,53 +1,48 @@
-import React from "react";
-import logo from "./logo.svg";
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
-import * as theme from "./theme/constants";
+import { Route, Switch } from "react-router";
+import { Link } from "react-router-dom";
+import NavigationBar from "./components/NavigationBar";
+import LoginStatus from "./components/LoginStatus";
+import Home from "./components/Home";
+import * as theme from "./theme";
 
-const App: React.FC = () => {
-  const AppLogoSpinAnimation = keyframes`
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  `;
-  const AppHeader = styled.header`
-    background-color: ${theme.backgroundColor.primary};
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  `;
-  const AppLink = styled.a`
-    color: ${theme.textColor.primary};
-  `;
-  const AppLogo = styled.img`
-    height: 40vmin;
-    pointer-events: none;
-    @media (prefers-reduced-motion: no-preference) {
-      animation: ${AppLogoSpinAnimation} infinite 20s linear;
-    }
-  `;
-  return (
-    <AppHeader>
-      <AppLogo src={logo} alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <AppLink
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </AppLink>
-    </AppHeader>
-  );
-};
+const AppWrapper = styled.div`
+  text-align: center;
+  min-height: 100vh;
+  background-color: ${theme.colorPalette.blueCharcoal};
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const AppSection = styled.section`
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const App: React.FC = () => (
+  <AppWrapper>
+    <header>
+      <NavigationBar>
+        <Link to="/" css={theme.linkClass}>
+          Home
+        </Link>
+        <LoginStatus loginURI="/login" logoutURI="/logout" />
+      </NavigationBar>
+    </header>
+    <AppSection>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </AppSection>
+  </AppWrapper>
+);
 
 export default App;

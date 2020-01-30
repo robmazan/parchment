@@ -1,38 +1,16 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import React from "react";
-import { Link } from "react-router-dom";
-import LoginStatus from "./LoginStatus";
-import styled from "@emotion/styled";
-import * as theme from "../theme/constants";
+import * as theme from "../theme";
 
-const NavigationBar: React.FC = props => {
-  const NavitationMenu = styled.ul`
-    background-color: ${theme.backgroundColor.primary};
-    list-style-type: none;
-    padding-inline-start: 0;
-    display: flex;
-    justify-content: center;
-    margin-block-end: 0;
-    margin-block-start: 0;
-    padding: 1em;
-  `;
-  const NavigationItem = styled.li`
-    margin: 0.3em;
-  `;
-  const NavigationLink = styled(Link)`
-    color: ${theme.textColor.primary};
-  `;
-  return (
-    <nav>
-      <NavitationMenu>
-        <NavigationItem>
-          <NavigationLink to="/">Home</NavigationLink>
-        </NavigationItem>
-        <NavigationItem>
-          <LoginStatus loginURI="/login" logoutURI="/logout" />
-        </NavigationItem>
-      </NavitationMenu>
-    </nav>
-  );
-};
+export const NavigationBar: React.FC = ({ children }) => (
+  <nav>
+    <ul css={theme.navigationMenuClass}>
+      {React.Children.map(children, child => (
+        <li css={theme.navigationItemClass}>{child}</li>
+      ))}
+    </ul>
+  </nav>
+);
 
 export default NavigationBar;

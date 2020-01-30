@@ -1,8 +1,8 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import { LoadingState, UserState } from "../slices/userSlice";
 import { connect } from "react-redux";
-import styled from "@emotion/styled";
-import * as theme from "../theme/constants";
+import * as theme from "../theme";
 
 export const LoginStatus: React.FC<{
   isLoggedIn: boolean;
@@ -11,32 +11,27 @@ export const LoginStatus: React.FC<{
   name?: string;
   loadingState: LoadingState;
 }> = ({ isLoggedIn, logoutURI, loginURI, name, loadingState }) => {
-  const StatusWrapper = styled.div`
-    color: ${theme.textColor.primary};
-    line-height: ${isLoggedIn ? ".9em" : "initial"};
-  `;
-  const StatusLink = styled.a`
-    color: ${theme.textColor.primary};
-    font-size: ${isLoggedIn ? ".8em" : "initial"};
-  `;
-
   if (
     loadingState === LoadingState.NONE ||
     loadingState === LoadingState.PENDING
   ) {
-    return <StatusWrapper>Loading...</StatusWrapper>;
+    return <div css={theme.linkClass}>Loading...</div>;
   } else if (isLoggedIn) {
     return (
-      <StatusWrapper>
+      <div css={[theme.linkClass, theme.twoLinesWrapperClass]}>
         <div>{name}</div>
-        <StatusLink href={logoutURI}>Logout</StatusLink>
-      </StatusWrapper>
+        <a href={logoutURI} css={[theme.linkClass, theme.smallLinkClass]}>
+          Logout
+        </a>
+      </div>
     );
   } else {
     return (
-      <StatusWrapper>
-        <StatusLink href={loginURI}>Login</StatusLink>
-      </StatusWrapper>
+      <div css={theme.linkClass}>
+        <a href={loginURI} css={theme.linkClass}>
+          Login
+        </a>
+      </div>
     );
   }
 };
@@ -58,4 +53,6 @@ const mapStateToProps = (
   logoutURI
 });
 
-export default connect(mapStateToProps)(LoginStatus);
+export const ConnectedLoginStatus = connect(mapStateToProps)(LoginStatus);
+
+export default ConnectedLoginStatus;
