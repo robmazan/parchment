@@ -14,7 +14,11 @@ describe("LoginStatus", () => {
         loadingState={LoadingState.FAILURE}
       />
     );
-    expect(component).toMatchInlineSnapshot(`"Login"`);
+    expect(component).toMatchInlineSnapshot(`
+      <div>
+        "Login"
+      </div>
+    `);
   });
 
   it("renders logout link for logged in user", () => {

@@ -15,20 +15,20 @@ export const LoginStatus: React.FC<{
     loadingState === LoadingState.NONE ||
     loadingState === LoadingState.PENDING
   ) {
-    return <div css={theme.linkClass}>Loading...</div>;
+    return <div css={theme.text.alternate}>Loading...</div>;
   } else if (isLoggedIn) {
     return (
-      <div css={[theme.linkClass, theme.twoLinesWrapperClass]}>
+      <div css={[theme.text.alternate, theme.lineHeight[90]]}>
         <div>{name}</div>
-        <a href={logoutURI} css={[theme.linkClass, theme.smallLinkClass]}>
+        <a href={logoutURI} css={theme.link.small}>
           Logout
         </a>
       </div>
     );
   } else {
     return (
-      <div css={theme.linkClass}>
-        <a href={loginURI} css={theme.linkClass}>
+      <div>
+        <a href={loginURI} css={theme.link.normal}>
           Login
         </a>
       </div>

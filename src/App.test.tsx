@@ -6,26 +6,22 @@ describe("App", () => {
   it("renders without any issue", () => {
     const component = shallow(<App />);
     expect(component).toMatchInlineSnapshot(`
-      <Styled(div)>
-        <header>
-          <NavigationBar>
-            "Home"
-            <Connect(LoginStatus)
-              loginURI="/login"
-              logoutURI="/logout"
-            />
-          </NavigationBar>
-        </header>
-        <Styled(section)>
-          <Switch>
-            <Route
-              component={[Function]}
-              exact={true}
-              path="/"
-            />
-          </Switch>
-        </Styled(section)>
-      </Styled(div)>
+      <header>
+        <NavigationBar>
+          "Home"
+          <Connect(LoginStatus)
+            loginURI="/login"
+            logoutURI="/logout"
+          />
+        </NavigationBar>
+      </header>
+      <Switch>
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/"
+        />
+      </Switch>
     `);
   });
 });
